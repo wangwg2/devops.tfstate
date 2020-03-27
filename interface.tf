@@ -13,8 +13,8 @@ variable "environment" {
   description = "The name of our environment, i.e. development."
 }
 
-output "s3_bucket_id" {
-  value = aws_s3_bucket.tfstate.id
+output "s3_bucket_name" {
+  value = aws_s3_bucket.tfstate.bucket
 }
 
 output "dynamodb_table_name" {
