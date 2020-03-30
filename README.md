@@ -8,7 +8,7 @@ A lightweight remote state module for Terraform that creates S3 buckets for envi
 ```terraform
 module "tfstate" {
   source = "github.com/wangwg2/devops.tfstate"
-  prefix = "aivlk"
+  prefix = "tft"
   environment = "development"
 }
 ```
