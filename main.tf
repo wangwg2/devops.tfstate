@@ -5,9 +5,9 @@ resource "aws_s3_bucket" "tfstate" {
   # acl           = "authenticated-read"
 
   # Never want to delete your state bucket
-  lifecycle {
-    prevent_destroy = true
-  }
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
 
   versioning {
     enabled = true
