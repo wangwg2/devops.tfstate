@@ -7,19 +7,31 @@ resource "aws_s3_bucket" "tfstate" {
     prevent_destroy = true
   }
 
-  versioning {
-    enabled = true
-  }
-
   tags = {
     Name        = "${var.prefix}-tfstate-${var.environment}"
     Environment = var.environment
   }
 }
 
+resource "aws_s3_bucket_ownership_controls" "tfstate" {
+  bucket = aws_s3_bucket.tfstate.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
 resource "aws_s3_bucket_acl" "tfstate" {
+  depends_on = [aws_s3_bucket_ownership_controls.tfstate]
+
   bucket = aws_s3_bucket.tfstate.id
   acl    = "private"  
+}
+
+resource "aws_s3_bucket_versioning" "versioning_tfstate" {
+  bucket = aws_s3_bucket.tfstate.id
+  versioning_configuration {
+    status = "Enabled"
+  }
 }
 
 resource "aws_dynamodb_table" "tfstate_lock" {
