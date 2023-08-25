@@ -6,6 +6,7 @@ A lightweight remote state module for Terraform that creates S3 buckets for envi
 
 - [main.tf](main.tf)
 - [variables.tf](variables.tf)
+- [outputs.tf](outputs.tf)
 
 ## Usage
 
