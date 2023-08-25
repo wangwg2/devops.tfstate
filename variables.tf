@@ -4,12 +4,12 @@ variable "region" {
 }
 
 variable "prefix" {
-  default     = "aivlk"
+  default     = "aws"
   description = "The name of our org, i.e. examplecom."
 }
 
 variable "environment" {
-  default     = "development"
+  default     = "dev"
   description = "The name of our environment, i.e. development."
 }
 
