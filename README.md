@@ -4,6 +4,9 @@ A lightweight remote state module for Terraform that creates S3 buckets for envi
 
 创建 S3 存储桶 和 DynamoDB Table， 用于储存 terraform state 和 控制并发操作。
 
+- [main.tf](main.tf)
+- [variables.tf](variables.tf)
+
 ## Usage
 
 ```terraform
@@ -14,7 +17,7 @@ module "tfstate" {
 }
 ```
 
-See `interface.tf` for additional configurable variables.
+See `variables.tf` for additional configurable variables.
 
 ## License
 
