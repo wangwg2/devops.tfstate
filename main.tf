@@ -19,7 +19,6 @@ resource "aws_s3_bucket" "tfstate" {
   }
 }
 
-
 resource "aws_dynamodb_table" "tfstate_lock" {
   name         = "${var.prefix}-tfstate-${var.environment}"
   billing_mode = "PAY_PER_REQUEST"
