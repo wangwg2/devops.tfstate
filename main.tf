@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "tfstate" {
   bucket        = "${var.prefix}-tfstate-${var.environment}"
   force_destroy = false
-  acl           = "private"
+  # acl           = "private"
   # acl           = "authenticated-read"
 
   # Never want to delete your state bucket
@@ -17,6 +17,11 @@ resource "aws_s3_bucket" "tfstate" {
     Name        = "${var.prefix}-tfstate-${var.environment}"
     Environment = var.environment
   }
+}
+
+resource "aws_s3_bucket_acl" "tfstate" {
+  bucket = aws_s3_bucket.tfstate.id
+  acl    = "private"  
 }
 
 resource "aws_dynamodb_table" "tfstate_lock" {
